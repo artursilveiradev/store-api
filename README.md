@@ -1,24 +1,39 @@
-# README
+# Store API
+Rails API only sample application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![CI](https://github.com/artursilveiradev/store-api/actions/workflows/ci.yml/badge.svg)
 
-Things you may want to cover:
+## API requests
 
-* Ruby version
+### List products
+```
+curl "http://localhost:3000/products"
+```
 
-* System dependencies
+### Show product
+```
+curl "http://localhost:3000/products/1"
+```
 
-* Configuration
+### Create product
+```
+curl -X "POST" "http://localhost:3000/products" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "name": "Calça"
+}'
+```
 
-* Database creation
+### Update product
+```
+curl -X "PATCH" "http://localhost:3000/products/1" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "name": "Calça de Shopping"
+}'
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Destroy product
+```
+curl -X "DELETE" "http://localhost:3000/products/1"
+```
